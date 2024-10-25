@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    docker.build('my-app-image')
+                }
+            }
+        }
+        stage('Run Docker Container') {
+            steps {
+                script {
+                    docker.image('my-app-image').run('-d -p 8081:8080 --name my-app-container')
+                }
+            }
+        }
+    }
+}
