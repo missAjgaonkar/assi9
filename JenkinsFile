@@ -4,14 +4,14 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build('my-app-image')
+                    docker.build('my-app-image1')
                 }
             }
         }
         stage('Run Docker Container') {
             steps {
                 script {
-                    docker.image('my-app-image').run('-d -p 8081:8080 --name my-app-container')
+                    docker.image('my-app-image1').run('-d -p 8081:8080 --name my-app-container1')
                 }
             }
         }
